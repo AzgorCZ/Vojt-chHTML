@@ -1,5 +1,20 @@
 <?PHP
-
+echo 15;
+echo"<br>";
+print (1.1);
+echo"<br>";
+echo "cokkies";
+echo"<br>";
+print(TRUE);
+echo"<br>";
+echo "zde spojuji jeden řetězec"." s druhým řetězcem";
+echo"<br>";
+echo "<img src=\"art.jpg\" alt=\"mno\">";
+echo "<br>";
+echo "\\";
+echo "<br>";
+echo "OPERÁTORY: ";
+echo "<br>";
         $a = 3;
         $b = 5;
         echo "a=" . $a . "<br>" . "b=" . $b . "<br>";
@@ -47,7 +62,7 @@
         echo"<br>";
         var_dump($a < $b);
         echo"<br>"."<br>";
-        echo "a||b, a&&b" . "<br>";
+        echo "a||b, a&&b, !a" . "<br>";
         $a = 0;
         $b = 1;
         echo "a=" . $a . "<br>" . "b=" . $b;
@@ -56,4 +71,5 @@
         echo"<br>";
         var_dump($a && $b);
         echo "<br>";
+        var_dump(!$a);
 ?>
