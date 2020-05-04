@@ -128,4 +128,56 @@ $produkty1["ik"] = array(
     array('jméno' => 'Můx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'akita', 'věk' => 6),
     );
 dump($produkty1);
+
+$radekVojtaKubinec=5; //mesic narozeni
+$sloupecVojtaKubinec=16; //vek
+            echo "<table border=1>";
+            for($i=1;$i<=$radekVojtaKubinec;$i++) {
+                echo "<tr>";
+for($x=1;$x<=$sloupecVojtaKubinec;$x++){
+    echo "<td>".$i."-".$x."</td>";
+}
+                echo "</tr>";
+            }
+            echo "</table><br><br><br>";
+            
+           echo abs(6)."<br>";//mat.funkce 1.
+            echo cos(150)."<br>";//mat.funkce 2.
+           $string="Hello its me mario";//řetězcová funkce 1.
+          echo strstr($string, "its")."<br>";
+          echo strpos($string, "its")."<br>";//řetězcová funkce 2.
+          echo sizeof($produkty);//funce pole 1.
+          array_splice($produkty, 0, 1, "oi1"); //funkce pole 2.
+          dump($produkty);
+          
+          $i=1;
+          foreach ($produkty as $produkt){
+              echo $i."-".$produkt."<br>";
+              $i++;
+          }
+          
+                  $rodneCislo="030101/1111";
+        echo "rodne cislo: ".$rodneCislo;
+        dump(vek($rodneCislo)); //pokud je zadán druhý parametr jako 1 vypíše se rok narození
+        /**
+         * 
+         * @param string $rodneCislo
+         * @param bool $volba
+         * @return int
+         */
+        function vek (string $rodneCislo, bool $volba = false){        //vlastni funkce
+            $narozeni=substr($rodneCislo,0,2);
+            $stoleti= substr(date("Y"),2,2);
+            if($narozeni <=$stoleti){ //pokud jsou první 2 čísla rodného čísla větší než poslední dvě čísla aktuálního století, tak osoba patří do roku 2000-Současný rok
+                $narozeni= "20".$narozeni;
+            }
+            else{
+                $narozeni= "19".$narozeni;
+            }
+            $vek=date("Y")-$narozeni;
+            if ($volba == true){
+                return $narozeni;
+            }
+            return $vek;
+        }
     ?>
