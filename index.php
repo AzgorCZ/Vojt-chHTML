@@ -1,4 +1,8 @@
 <?PHP
+require 'tracy/tracy.phar';
+use Tracy\Debugger;
+Debugger::enable();
+Debugger::$strictMode = true;
 
 echo 15;
 echo"<br>";
@@ -20,59 +24,59 @@ $a = 3;
 $b = 5;
 echo "a=" . $a . "<br>" . "b=" . $b . "<br>";
 echo "sčítání,odčítání,děleno,krát";
-var_dump($a + $b);
+dump($a + $b);
 echo"<br>";
-var_dump($a - $b);
+dump($a - $b);
 echo"<br>";
-var_dump($a / $b);
+dump($a / $b);
 echo"<br>";
-var_dump($a * $b);
+dump($a * $b);
 echo"<br>" . "<br>";
 echo "a++,++a, a--,--a, a+=b a-=b, a*=b,a/=b";
 echo"<br>";
-var_dump($a++);
+dump($a++);
 $a = 3;
 echo"<br>";
-var_dump(++$a);
+dump(++$a);
 $a = 3;
 echo"<br>";
-var_dump($a--);
+dump($a--);
 $a = 3;
 echo"<br>";
-var_dump(--$a);
+dump(--$a);
 $a = 3;
 echo"<br>";
-var_dump($a += $b);
+dump($a += $b);
 $a = 3;
 echo"<br>";
-var_dump($a -= $b);
+dump($a -= $b);
 $a = 3;
 echo"<br>";
-var_dump($a *= $b);
+dump($a *= $b);
 $a = 3;
 echo"<br>";
-var_dump($a /= $b);
+dump($a /= $b);
 $a = 3;
 echo"<br>" . "<br>";
 echo "a==b,a!=b, a>b, a < b" . "<br>";
-var_dump($a == $b);
+dump($a == $b);
 echo"<br>";
-var_dump($a != $b);
+dump($a != $b);
 echo"<br>";
-var_dump($a > $b);
+dump($a > $b);
 echo"<br>";
-var_dump($a < $b);
+dump($a < $b);
 echo"<br>" . "<br>";
 echo "a||b, a&&b, !a" . "<br>";
 $a = 0;
 $b = 1;
 echo "a=" . $a . "<br>" . "b=" . $b;
 echo"<br>";
-var_dump($a || $b);
+dump($a || $b);
 echo"<br>";
-var_dump($a && $b);
+dump($a && $b);
 echo "<br>";
-var_dump(!$a);
+dump(!$a);
 $vojtaKubinec1 = 1;
 $vojtaKubinec2 = 1;
 if ($vojtaKubinec1 < $vojtaKubinec2) {
@@ -108,7 +112,7 @@ switch ($vojtaKubinec1) {
         break;
 }
 $produkty = array(1 =>"ok", 2 =>"ok1", 3 =>"ok2",4 =>"ok3",5 =>"ok4",6 =>"ok5",7 =>"ok6",8 =>"ok7",9 =>"ok8",10 =>"ok9");
-var_dump($produkty);
+dump($produkty);
 $produkty1["ok"] = array( );
 $produkty1["uk"] = array( );
 $produkty1["ik"] = array(
@@ -123,5 +127,5 @@ $produkty1["ik"] = array(
     array('jméno' => 'Mlx', 'pohlaví' => 'F', 'druh' => 'pes', 'rasa' => 'malamut', 'věk' => 9),
     array('jméno' => 'Můx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'akita', 'věk' => 6),
     );
-var_dump($produkty1);
+dump($produkty1);
     ?>
