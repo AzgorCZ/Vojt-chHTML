@@ -1,6 +1,11 @@
 <?PHP
-require 'tracy/tracy.phar';
+
+require 'C:/wamp64/www/tracy/tracy.phar';
+require_once('zpracovaniRodneho.php');  //načítám třídu pro sčítání (require_once načte pouze v případě, že není načtená)
+
+
 use Tracy\Debugger;
+
 Debugger::enable();
 Debugger::$strictMode = true;
 
@@ -98,7 +103,7 @@ switch ($vojtaKubinec1) {
         break;
     case 1:
         echo"ok boomer <br>";
-        
+
         break;
     case 2:
         break;
@@ -111,73 +116,55 @@ switch ($vojtaKubinec1) {
     default:
         break;
 }
-$produkty = array(1 =>"ok", 2 =>"ok1", 3 =>"ok2",4 =>"ok3",5 =>"ok4",6 =>"ok5",7 =>"ok6",8 =>"ok7",9 =>"ok8",10 =>"ok9");
+$produkty = array(1 => "ok", 2 => "ok1", 3 => "ok2", 4 => "ok3", 5 => "ok4", 6 => "ok5", 7 => "ok6", 8 => "ok7", 9 => "ok8", 10 => "ok9");
 dump($produkty);
-$produkty1["ok"] = array( );
-$produkty1["uk"] = array( );
+$produkty1["ok"] = array();
+$produkty1["uk"] = array();
 $produkty1["ik"] = array(
-    array('jméno' => 'Max', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'knírač', 'věk' => 4 ),
+    array('jméno' => 'Max', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'knírač', 'věk' => 4),
     array('jméno' => 'Msx', 'pohlaví' => 'F', 'druh' => 'pes', 'rasa' => 'pudl', 'věk' => 3),
-    array('jméno' => 'Mdx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'buldok', 'věk' => 3 ),
+    array('jméno' => 'Mdx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'buldok', 'věk' => 3),
     array('jméno' => 'Mfx', 'pohlaví' => 'F', 'druh' => 'pes', 'rasa' => 'chrt', 'věk' => 1),
-    array('jméno' => 'Mgx', 'pohlaví' => 'F', 'druh' => 'pes', 'rasa' => 'kokršpaněl', 'věk' => 6 ),
-    array('jméno' => 'Mhx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'knírač', 'věk' => 4 ),
+    array('jméno' => 'Mgx', 'pohlaví' => 'F', 'druh' => 'pes', 'rasa' => 'kokršpaněl', 'věk' => 6),
+    array('jméno' => 'Mhx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'knírač', 'věk' => 4),
     array('jméno' => 'Mjx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'pitbulteriér', 'věk' => 7),
     array('jméno' => 'Mkx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'foxhound', 'věk' => 8),
     array('jméno' => 'Mlx', 'pohlaví' => 'F', 'druh' => 'pes', 'rasa' => 'malamut', 'věk' => 9),
     array('jméno' => 'Můx', 'pohlaví' => 'M', 'druh' => 'pes', 'rasa' => 'akita', 'věk' => 6),
-    );
+);
 dump($produkty1);
 
-$radekVojtaKubinec=5; //mesic narozeni
-$sloupecVojtaKubinec=16; //vek
-            echo "<table border=1>";
-            for($i=1;$i<=$radekVojtaKubinec;$i++) {
-                echo "<tr>";
-for($x=1;$x<=$sloupecVojtaKubinec;$x++){
-    echo "<td>".$i."-".$x."</td>";
+$radekVojtaKubinec = 5; //mesic narozeni
+$sloupecVojtaKubinec = 16; //vek
+echo "<table border=1>";
+for ($i = 1; $i <= $radekVojtaKubinec; $i++) {
+    echo "<tr>";
+    for ($x = 1; $x <= $sloupecVojtaKubinec; $x++) {
+        echo "<td>" . $i . "-" . $x . "</td>";
+    }
+    echo "</tr>";
 }
-                echo "</tr>";
-            }
-            echo "</table><br><br><br>";
-            
-           echo abs(6)."<br>";//mat.funkce 1.
-            echo cos(150)."<br>";//mat.funkce 2.
-           $string="Hello its me mario";//řetězcová funkce 1.
-          echo strstr($string, "its")."<br>";
-          echo strpos($string, "its")."<br>";//řetězcová funkce 2.
-          echo sizeof($produkty);//funce pole 1.
-          array_splice($produkty, 0, 1, "oi1"); //funkce pole 2.
-          dump($produkty);
-          
-          $i=1;
-          foreach ($produkty as $produkt){
-              echo $i."-".$produkt."<br>";
-              $i++;
-          }
-          
-                  $rodneCislo="030101/1111";
-        echo "rodne cislo: ".$rodneCislo;
-        dump(vek($rodneCislo)); //pokud je zadán druhý parametr jako 1 vypíše se rok narození
-        /**
-         * 
-         * @param string $rodneCislo
-         * @param bool $volba
-         * @return int
-         */
-        function vek (string $rodneCislo, bool $volba = false){        //vlastni funkce
-            $narozeni=substr($rodneCislo,0,2);
-            $stoleti= substr(date("Y"),2,2);
-            if($narozeni <=$stoleti){ //pokud jsou první 2 čísla rodného čísla větší než poslední dvě čísla aktuálního století, tak osoba patří do roku 2000-Současný rok
-                $narozeni= "20".$narozeni;
-            }
-            else{
-                $narozeni= "19".$narozeni;
-            }
-            $vek=date("Y")-$narozeni;
-            if ($volba == true){
-                return $narozeni;
-            }
-            return $vek;
-        }
-    ?>
+echo "</table><br><br><br>";
+
+echo abs(6) . "<br>"; //mat.funkce 1.
+echo cos(150) . "<br>"; //mat.funkce 2.
+$string = "Hello its me mario"; //řetězcová funkce 1.
+echo strstr($string, "its") . "<br>";
+echo strpos($string, "its") . "<br>"; //řetězcová funkce 2.
+echo sizeof($produkty); //funce pole 1.
+array_splice($produkty, 0, 1, "oi1"); //funkce pole 2.
+dump($produkty);
+
+$i = 1;
+foreach ($produkty as $produkt) {
+    echo $i . "-" . $produkt . "<br>";
+    $i++;
+}
+
+$rodneCislo = "036027/1111";
+echo "rodne cislo: " . $rodneCislo;
+$var = new zpracovaniRodneho();
+$var->vek($rodneCislo);
+$var->datum($rodneCislo);
+$var ->pohlavi($rodneCislo);
+?>
