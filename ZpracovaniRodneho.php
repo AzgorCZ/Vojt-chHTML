@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Description of scitacka
- *
+ * 
  * @author Vojta
  */
 class zpracovaniRodneho {
     public $rodneCislo;
-    public function __construct($rodneCislo) {
+    public $jmeno;
+    public function __construct($rodneCislo, $jmeno) {
         $this->rodneCislo = $rodneCislo;
+        $this->jmeno = $jmeno;
     }
     
     /**
      * 
-     * @param type $rodneCislo
      * @return string
      */
 private function narozeni(){
@@ -28,21 +28,23 @@ private function narozeni(){
             return $rok;
 }
 
+public function jmeno(){
+    echo "<br>".$this->jmeno;
+}
  /**
   * 
-  * @param string $rodneCislo
   * @return int
   */
        public function vek (){
             $rok= $this -> narozeni();
             $vek=date("Y")-$rok;
+            echo "<br>"."rodne cislo: " . $this->rodneCislo;
             echo "<br>".$vek;
             return 0;
         }
         
         /**
          * 
-         * @param string $rodneCislo
          * @return int
          */
         public function datum (){
@@ -60,16 +62,20 @@ private function narozeni(){
                 return 0;
             }
                 
-          echo "<br>".$rok.".".$mesic.".".$den;
+          echo "<br>".$den.".".$mesic.".".$rok;
           return 0;
 }
 
+/**
+ * 
+ * @return int
+ */
 public function pohlavi (){
     $pohlavi = "";
     $mesic = substr($this -> rodneCislo,2,2);
     if ($mesic >50){
       $pohlavi= "žena";
-      echo "<br>".$pohlavi;
+      echo "<br>".$pohlavi."<br>";
       return 0;
     }
                 else if($mesic >12 && $mesic <=50 ){
@@ -77,7 +83,7 @@ public function pohlavi (){
                 return 0;
             }
     $pohlavi = "muž";
-    echo "<br>".$pohlavi;
+    echo "<br>".$pohlavi."<br>";
     return 0;
 }
 

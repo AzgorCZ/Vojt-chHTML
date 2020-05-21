@@ -5,12 +5,16 @@ require_once('zpracovaniRodneho.php');
 use Tracy\Debugger;
 Debugger::enable();
 Debugger::$strictMode = true;
+ //format rodného čísla "036027/1111";
+$marie = new zpracovaniRodneho("036027/1111", "marie");
+$marie->jmeno();
+$marie->vek();
+$marie->datum();
+$marie ->pohlavi();
 
-$rodneCislo = "036027/1111";
-echo "rodne cislo: " . $rodneCislo;
-$var = new zpracovaniRodneho($rodneCislo);
-$var->vek();
-$var->datum();
-$var ->pohlavi();
-
+$pepa = new zpracovaniRodneho("860124/1111", "pepa");
+$pepa->jmeno();
+$pepa->vek();
+$pepa->datum();
+$pepa ->pohlavi();
 ?>
