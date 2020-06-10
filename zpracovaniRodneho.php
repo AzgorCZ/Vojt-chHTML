@@ -55,7 +55,7 @@ private function narozeni($rodneCislo){
                 return 0;
             }
                 
-          echo "<br>".$rok.".".$mesic.".".$den;
+          echo "<br>".$den.".".$mesic.".".$rok;
           return 0;
 }
 
